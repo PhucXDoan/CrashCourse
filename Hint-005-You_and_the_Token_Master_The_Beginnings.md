@@ -105,11 +105,11 @@ Your mission will then be to build a AST based on what the Token-Master is telli
 >
 >   (**You**) ... and the one after that?
 >
->   (**Token-Master**) It is a `'\*'`.
+>   (**Token-Master**) It is a `'*'`.
 >
 >   (**You**) Alright, so this subexpression's tree so far looks like:
 >   ```
->                   '\*'
+>                   '*'
 >                   /\
 >                  /  \
 >               '0.1' ???
@@ -120,7 +120,7 @@ Your mission will then be to build a AST based on what the Token-Master is telli
 >
 >   (**You**) Cool, this gives us:
 >   ```
->                   '\*'
+>                   '*'
 >                   /\
 >                  /  \
 >               '0.1' '7'
@@ -138,7 +138,7 @@ Your mission will then be to build a AST based on what the Token-Master is telli
 >               '+'   \
 >               /\     \
 >              /  \     \
->            '-'  '1'   '\*'
+>            '-'  '1'   '*'
 >            /\          /\
 >           /  \        /  \
 >         '3'  '4'  '0.1'  '7'
