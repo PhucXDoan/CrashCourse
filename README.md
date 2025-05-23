@@ -28,6 +28,51 @@ you can take the more user-friendly approach with the [GitHub Desktop GUI](https
 
 ![](./data/GitDesktopDownload.png)
 
+Alongside downloading the GUI client,
+you should also probably make a GitHub account if you don't already have one.
+Once you sign into the GUI client, you can go ahead and "clone" this repository into whatever directory you like.
+
+By cloning,
+you have a local copy of the respository on your machine.
+You can make changes to the files within the respository as much as you like,
+and the GUI will show that.
+For example, I've created the file `LICENSE.md` and the GUI shows exactly that.
+
+I've also wrote a commit message of *"Defined a license for the repository."* and after that,
+I press the big green button of *"Commit 1 file to **master**"*[^1].
+A **commit** in git pretty much means you officates changes you have made;
+a checkpoint of sorts.
+This is nice,
+because you can summarize the changes you've made in the message box,
+and go into further details (if needed) in the description box
+(although I rarely do this myself).
+
+However, this commit I've made is *only local to my machine*.
+This means you wouldn't see my new `LICENSE.md` file I've created yet.
+To actually upload it online (that is, to the GitHub website),
+I need to then **push** my changes.
+
+Once I do that,
+you'll be able to see my commit on GitHub!
+
+Now, if you cloned the repository before I pushed the commit to GitHub,
+you'd have an out-of-date repository on your machine.
+This isn't a bad thing;
+you just need to make the Git GUI check if there has been any new commits since then.
+The GUI client will sometimes do this automatically,
+but you manually recheck by pressing the "fetch origin"[^2] button at the top.
+
+Once you do so, the GUI would indicate if there has been new updates to the repository.
+If so, you can pull the changes into your local copy of the repository.
+
+[^1]: The word "master" here refers to the main branch of the repository.
+You can just think of a branch as a way for multiple people
+to do their work independently without worrying about conflicting changes.
+
+[^2]: The word "origin" refers to the main place where the repository is being hosted.
+In this case, it's GitHub, but it needs not be.
+It could be on your top-secret company's servers for instance.
+
 # Task 1: Using brain more.
 
 REPL stands for Read-Evalulate-Print-Loop.
