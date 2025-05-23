@@ -26,11 +26,16 @@ and upload code as a way to keep track of your progress so far.
 Because of this, you don't need to learn git within the console (the traditional way);
 you can take the more user-friendly approach with the [GitHub Desktop GUI](https://git-scm.com/downloads/guis).
 
-![](./data/GitDesktopDownload.png)
+<p align="center"><img src="./data/GitDesktopDownload.png" width="600"></p>
 
 Alongside downloading the GUI client,
 you should also probably make a GitHub account if you don't already have one.
+
+<p align="center"><img src="./data/GitHubGUISignin.png" width="600"></p>
+
 Once you sign into the GUI client, you can go ahead and "clone" this repository into whatever directory you like.
+
+<p align="center"><img src="./data/GitHubGUIClone.png" width="600"></p>
 
 By cloning,
 you have a local copy of the respository on your machine.
@@ -38,9 +43,11 @@ You can make changes to the files within the respository as much as you like,
 and the GUI will show that.
 For example, I've created the file `LICENSE.md` and the GUI shows exactly that.
 
+<p align="center"><img src="./data/GitHubGUINewFile.png" width="600"></p>
+
 I've also wrote a commit message of *"Defined a license for the repository."* and after that,
 I press the big green button of *"Commit 1 file to **master**"*[^1].
-A **commit** in git pretty much means you officates changes you have made;
+A **commit** in git pretty much means you officate changes you have made;
 a checkpoint of sorts.
 This is nice,
 because you can summarize the changes you've made in the message box,
@@ -61,6 +68,8 @@ This isn't a bad thing;
 you just need to make the Git GUI check if there has been any new commits since then.
 The GUI client will sometimes do this automatically,
 but you manually recheck by pressing the "fetch origin"[^2] button at the top.
+
+<p align="center"><img src="./data/GitHubGUIPull.png" width="600"></p>
 
 Once you do so, the GUI would indicate if there has been new updates to the repository.
 If so, you can pull the changes into your local copy of the repository.
@@ -126,7 +135,7 @@ c = -2
 Python has a REPL program too; you simply run the `python` (or `python3`) command in
 the shell/terminal/console and then you can type some Python code line-by-line and have it
 be evaluated each time you press enter.
-I highly suggest you play with that a bit to be more famailar with the idea of REPL.
+I highly suggest you play with that a bit to familiarize yourself with the idea of REPL.
 
 Your goal then would be to make a REPL program as described above using Python.
 It should be able to prompt the user for input, be able to print out the correct calculation,
