@@ -152,7 +152,7 @@ be evaluated each time you press enter.
 I highly suggest you play with that a bit
 to further familiarize yourself with the idea of REPL.
 
-<p align="center"><img src="./data/PythonREPL" width="600"></p>
+<p align="center"><img src="./data/PythonREPL.png" width="600"></p>
 
 [^4]: ... or maybe `python3`; this is because of a weird backward-compatibility thing.
 
