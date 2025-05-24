@@ -60,7 +60,12 @@ If so, you can pull the changes into your local copy of the repository.
 
 <p align="center"><img src="./data/GitHubGUIPull.png" width="600"></p>
 
-That's kinda all there is to it! There's plenty more to Git, of courses,
+After you've made your GitHub account,
+I can add you as a contributor to this repository
+so you'd be allowed to push your commits here.
+Besides that, that's really all there is to it!
+
+There's plenty more to Git, of course,
 like for instance:
 
 - what if I made some commits and tried to push them to
