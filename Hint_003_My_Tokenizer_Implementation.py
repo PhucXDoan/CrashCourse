@@ -13,6 +13,11 @@
 
 NUMBER_CHARACTERS     = '0123456789.'
 IDENTIFIER_CHARACTERS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+SYMBOLS               = '''
+    <= >= < > =
+    + - * / ^
+    ( )
+'''.split()
 
 def tokenize(string):
 
@@ -33,6 +38,8 @@ def tokenize(string):
                     token  += string[0 ]
                     string  = string[1:]
 
+                token = float(token)
+
                 tokens += [token]
 
             # Identifier token.
@@ -47,11 +54,7 @@ def tokenize(string):
                 tokens += [token]
 
             # Symbol token.
-            elif symbols := [x for x in [
-                '<=', '>=', '<', '>', '=',
-                '+', '-', '*', '/', '^',
-                '(', ')',
-            ] if string.startswith(x)]:
+            elif matches := [sym for sym in SYMBOLS if string.startswith(sym)]:
 
                 # There might be multiple matches, like "<=" and "<",
                 # so we pick the one that'd be the longest.
@@ -59,7 +62,7 @@ def tokenize(string):
                 # it'd give the largest number. However, we have a list of strings,
                 # so we tell `max` to use the function `len` to get the string's length
                 # and get the string with the longest length.
-                token = max(symbols, key=len)
+                token = max(matches, key=len)
 
                 tokens += [token]
                 string  = string[len(token):]

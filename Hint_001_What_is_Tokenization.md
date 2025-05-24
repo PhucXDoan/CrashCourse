@@ -19,13 +19,13 @@ chars = [
 We can collect groups of these characters into something called tokens:
 ```python
 tokens = [
-  '3.14',
+  3.14,
   '+',
   '(',
-  '2',
+  2,
   '*',
   '-',
-  '7',
+  7,
   ')',
   '>=',
   'val',

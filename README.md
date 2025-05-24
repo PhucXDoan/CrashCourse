@@ -1,29 +1,14 @@
 # Summer 2025 Crash Course for Katelyn.
 
-# Task 0: Git git.
+# Task 0: Git Git.
 
-Git is a version control system that can keep track of a project's changes over time,
-especially as multiple people start working on it.
-Think about how a team of programmers and artists might use something like Google Drive.
-They'd upload their code and stuff using a shared drive,
-but this would be annoying to manage
-when the only thing you could do to tell about the state
-of the project is whether or not someone uploaded something and when they did it.
-
-For instance, what happens if some idiot accidentally wipes an entire folder from existence?
-or if you see a file was "Last Changed by Ralph Yesterday";
-did Ralph do a major change that he hasn't gotten around to telling you yet,
-or was it because he just overwrote the file with the
-same content when he was drag-and-dropping into the drive?
-Git, while quite obtuse and annoying, is designed for this purpose:
-to keep a history of who did what
-and provide ways to undo or merge people's changes together.
-
-For you though, we can keep the git usage simple
-where you'll pretty much use it to download this repository,
+Git is a program that essentially keeps track of changes to files over time.
+For you though, we can keep the Git usage simple
+where you'll pretty much use it to download this repository (Git jargon for "this project"),
 keep it up-to-date whenever I make changes,
-and upload code as a way to keep track of your progress so far.
-Because of this, you don't need to learn git within the console (the traditional way);
+and maybe upload code as a way to keep track of your progress so far.
+
+Because of this, you don't need to learn Git within the console (the traditional way);
 you can take the more user-friendly approach with the [GitHub Desktop GUI](https://git-scm.com/downloads/guis).
 
 <p align="center"><img src="./data/GitDesktopDownload.png" width="600"></p>
@@ -33,60 +18,85 @@ you should also probably make a GitHub account if you don't already have one.
 
 <p align="center"><img src="./data/GitHubGUISignin.png" width="600"></p>
 
-Once you sign into the GUI client, you can go ahead and "clone" this repository into whatever directory you like.
+Once you sign into the GUI client,
+you can go ahead and "clone" this repository into whatever directory you like.
 
 <p align="center"><img src="./data/GitHubGUIClone.png" width="600"></p>
 
 By cloning,
 you have a local copy of the respository on your machine.
-You can make changes to the files within the respository as much as you like,
+You can make changes to the files within the respository as much as you like
 and the GUI will show that.
-For example, I've created the file `LICENSE.md` and the GUI shows exactly that.
+For example, I've created the file `LICENSE.md` and the GUI makes note of it.
 
 <p align="center"><img src="./data/GitHubGUINewFile.png" width="600"></p>
 
-I've also wrote a commit message of *"Defined a license for the repository."* and after that,
-I press the big green button of *"Commit 1 file to **master**"*[^1].
-A **commit** in git pretty much means you officate changes you have made;
-a checkpoint of sorts.
-This is nice,
-because you can summarize the changes you've made in the message box,
-and go into further details (if needed) in the description box
-(although I rarely do this myself).
+I also wrote a commit message summarizing what I did
+(which is useful for my future self and other people).
+I then press the big green commit button[^1] to officate the changes I've made so far.
 
 However, this commit I've made is *only local to my machine*.
 This means you wouldn't see my new `LICENSE.md` file I've created yet.
 To actually upload it online (that is, to the GitHub website),
-I need to then **push** my changes.
+I need to then **push** my changes[^2].
 
-Once I do that,
-you'll be able to see my commit on GitHub!
+<p align="center"><img src="./data/GitHubGUIPush.png" width="600"></p>
+
+Once I do that, you'll be able to see my commit on GitHub!
+
+<p align="center"><img src="./data/GitHubCommit.png" width="600"></p>
 
 Now, if you cloned the repository before I pushed the commit to GitHub,
-you'd have an out-of-date repository on your machine.
+you'd have an out-of-date local copy of the repository on your machine.
 This isn't a bad thing;
 you just need to make the Git GUI check if there has been any new commits since then.
 The GUI client will sometimes do this automatically,
-but you manually recheck by pressing the "fetch origin"[^2] button at the top.
-
-<p align="center"><img src="./data/GitHubGUIPull.png" width="600"></p>
+but you manually recheck by pressing the *"fetch origin"*[^3] button at the top.
 
 Once you do so, the GUI would indicate if there has been new updates to the repository.
 If so, you can pull the changes into your local copy of the repository.
 
-[^1]: The word "master" here refers to the main branch of the repository.
+<p align="center"><img src="./data/GitHubGUIPull.png" width="600"></p>
+
+That's kinda all there is to it! There's plenty more to Git, of courses,
+like for instance:
+
+- what if I made some commits and tried to push them to
+GitHub, but there were commits already online that I didn't fetch and pull beforehand?
+
+- what if I made a typo in the message?
+
+- how can I completely erase all changes I've made to the repository, back to a clean slate?
+
+- etc.
+
+But I won't show more to Git to you than what I've said here,
+because chances are you won't remember it.
+
+[^1]: The word "master" in *"Commit 1 file to **master**"* refers to
+the main branch of the repository.
 You can just think of a branch as a way for multiple people
 to do their work independently without worrying about conflicting changes.
+The term "master" is also slowly being phased out in favor for "main".
 
-[^2]: The word "origin" refers to the main place where the repository is being hosted.
+[^2]: This workflow is because you don't need GitHub to use Git.
+That is, you can use Git to keep track of your personal project
+that's just local to your computer.
+Also, it also means you can work on a project and commit without an internet connection,
+or if the connection is slow, you'd want to pool up several commits before pushing them
+to GitHub.
+
+[^3]: The word "origin" refers to the main place where the repository is being hosted.
 In this case, it's GitHub, but it needs not be.
 It could be on your top-secret company's servers for instance.
 
 # Task 1: Using brain more.
 
 REPL stands for Read-Evalulate-Print-Loop.
-The idea is that you have a command-line program that prompts the user for some sort of expression.
-The REPL program would take this input, interpret it, evaluate it, print the result, and then prompt the user for the next input.
+The idea is that you have a command-line program
+that prompts the user for some sort of expression.
+The REPL program would take this input, interpret it,
+evaluate it, print the result, and then prompt the user for the next input.
 For instance, a simple example of a REPL program could do some basic math operations:
 ```
 > 2 + 2
@@ -132,13 +142,18 @@ c = -2
 1.434258545910665
 ```
 
-Python has a REPL program too; you simply run the `python` (or `python3`) command in
+Python has a REPL program too; you simply run the `python`[^4] command in
 the shell/terminal/console and then you can type some Python code line-by-line and have it
 be evaluated each time you press enter.
-I highly suggest you play with that a bit to familiarize yourself with the idea of REPL.
+I highly suggest you play with that a bit
+to further familiarize yourself with the idea of REPL.
+
+[^4]: ... or maybe `python3`; this is because of a weird backwards compatibility thing.
 
 Your goal then would be to make a REPL program as described above using Python.
-It should be able to prompt the user for input, be able to print out the correct calculation,
+It should be able to prompt the user for input,
+be able to print out the correct calculation,
 maybe give an error message if the input is malformed, etc.
-The exact requirements are all up to you, but if you need help getting started, check out
+The exact requirements are all up to you,
+but if you need help getting started, check out
 the hints described in the other files.
