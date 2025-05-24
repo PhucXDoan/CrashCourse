@@ -20,6 +20,7 @@ given = '3.14 + (2 * -7) >= val'
 ```
 
 Thus we should make a token that is `3.14` and then store it in a list.
+
 We can then advance the given input string to be where we stopped:
 ```python
 given  = ' + (2 * -7) >= val'
@@ -27,6 +28,7 @@ tokens = [3.14]
 ```
 
 From here on out, we simply repeat the process to get the next token.
+
 The first character is now whitespace, however, so we'll just cut it out:
 ```python
 given  = '+ (2 * -7) >= val'
@@ -48,29 +50,36 @@ given  = '>= val'
 tokens = [3.14, '+', '(', 2, '*', '-', 7]
 ```
 
-Notice that we have two tokens `'-'` and `7` rather than a single number token of `-7`.
+Notice that we have two tokens, `'-'` and `7`, rather than a single number token of `-7`.
 I've chosen to make our hypothetical tokenizer behave like this,
-but you can *try* to make it where if it sees a `'-'`,
+but you can *try*[^1] to make it where if it sees a `'-'`,
 it checks if there's a digit immediately after.
 If so, then this is a negative sign of the number, so it should emit the token for `-7`.
 
-However, I suggest you don't do this, because it actually makes parsing the input string more difficult.
-Consider tokenizing `'2 - 3'`; then really we should end up with `[2, '-', 3]` and not `[2, -3]`
-since the `-` is the subtraction operator,
-but if we instead have `'2 - - 3'`,
-then the list of tokens would be `[2, '-', -3]`.
+[^1]: However, I suggest you don't do this, because it actually makes parsing the input string more difficult.
+If we were tokenizing `'2 - 3'`, then really we should end up with `[2, '-', 3]` and not `[2, -3]`
+since the `-` is the subtraction operator.
+On the other hand, if we instead have `'2 - - 3'`,
+then the list of tokens would be `[2, '-', -3]` now.
 This means whether or not the `-` ends up being a part of the number token depends a lot on the context,
 making your implementation of the tokenizer more complicated.
 None of this is necessary if you always interpret `-` as its own separate token,
 since we can resolve all of these issues once we build a syntax tree (hint!).
 
-Another thing to note is the token `'>='`.
-This one is subtle: if you see a `'>'` but no `'='` after it,
-then this would just be "greater than".
-If there is a `'='`, then this would obviously be "greater than or equal to".
-The tokenizer should emit the appropriate token, however,
-and not make two separate tokens of `'>'` and `'='`
-(unless there was whitespace between the characters).
+Another thing to note is the token `'>='`;
+the tokenizer should recognize that this is one single token
+and not a `'>'` token followed by a `'='` token.[^2]
+
+The final token list ends up being:
+```python
+tokens = [3.14, '+', '(', 2, '*', '-', 7, '>=', 'val']
+```
+where the `'val'` token can be thought as some sort of variable
+(which I'll generically use the term "identifier").
+
+[^2]: What if you have an input like `'1 < = 2'`?
+Should the token list be `[1, '<', '=', 2]` or `[1, '<=', 2]`?
+That's up to you to decide.
 
 Once you roughly understand these tiny details,
 you'll see that the tokenization process is really that simple.
