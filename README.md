@@ -51,7 +51,7 @@ you'd have an out-of-date local copy of the repository on your machine.
 This isn't a bad thing;
 you just need to make the Git GUI check if there has been any new commits since then.
 The GUI client will sometimes do this automatically,
-but you can manually recheck by pressing the *"fetch origin"*[^3] button at the top.
+but you can manually recheck by pressing the *"Fetch origin"*[^3] button at the top.
 
 <p align="center"><img src="./data/GitHubGUIFetch.png" width="600"></p>
 
