@@ -33,10 +33,10 @@ For example, I've created the file `LICENSE.md` and the GUI makes note of it.
 
 I also wrote a commit message summarizing what I did
 (which is useful for my future self and other people).
-I then press the big green commit button[^1] to officate the changes I've made so far.
+I then press the big blue commit button[^1] to officate the changes I've made so far.
 
 However, this commit I've made is *only local to my machine*.
-This means you wouldn't see my new `LICENSE.md` file I've created yet.
+This means you won't see my new `LICENSE.md` file I've created yet.
 To actually upload it online (that is, to the GitHub website),
 I need to then **push** my changes[^2].
 
@@ -51,7 +51,9 @@ you'd have an out-of-date local copy of the repository on your machine.
 This isn't a bad thing;
 you just need to make the Git GUI check if there has been any new commits since then.
 The GUI client will sometimes do this automatically,
-but you manually recheck by pressing the *"fetch origin"*[^3] button at the top.
+but you can manually recheck by pressing the *"fetch origin"*[^3] button at the top.
+
+<p align="center"><img src="./data/GitHubGUIFetch.png" width="600"></p>
 
 Once you do so, the GUI would indicate if there has been new updates to the repository.
 If so, you can pull the changes into your local copy of the repository.
@@ -70,21 +72,23 @@ GitHub, but there were commits already online that I didn't fetch and pull befor
 
 - etc.
 
-But I won't show more to Git to you than what I've said here,
-because chances are you won't remember it.
+But I won't show belabor Git anymore, because chances are you won't remember it.
 
 [^1]: The word "master" in *"Commit 1 file to **master**"* refers to
 the main branch of the repository.
-You can just think of a branch as a way for multiple people
-to do their work independently without worrying about conflicting changes.
-The term "master" is also slowly being phased out in favor for "main".
+There can be multiple branches in a repository which allows for the
+project to slowly "diverge" in terms of features or whatever,
+and later on the branches would be merged together to become one again.
+The term "master" is also slowly being phased out in favor for "main",
+so you might hear "main" branch rather than the "master" branch.
 
-[^2]: This workflow is because you don't need GitHub to use Git.
+[^2]: This workflow of "commit then push" is because
+you don't need GitHub to use Git.
 That is, you can use Git to keep track of your personal project
 that's just local to your computer.
 Also, it also means you can work on a project and commit without an internet connection,
 or if the connection is slow, you'd want to pool up several commits before pushing them
-to GitHub.
+all to GitHub.
 
 [^3]: The word "origin" refers to the main place where the repository is being hosted.
 In this case, it's GitHub, but it needs not be.
@@ -148,7 +152,9 @@ be evaluated each time you press enter.
 I highly suggest you play with that a bit
 to further familiarize yourself with the idea of REPL.
 
-[^4]: ... or maybe `python3`; this is because of a weird backwards compatibility thing.
+<p align="center"><img src="./data/PythonREPL" width="600"></p>
+
+[^4]: ... or maybe `python3`; this is because of a weird backward-compatibility thing.
 
 Your goal then would be to make a REPL program as described above using Python.
 It should be able to prompt the user for input,
