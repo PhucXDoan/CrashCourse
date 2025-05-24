@@ -1,3 +1,7 @@
+# This is a bare-bone implementation of a tokenizer.
+# This should serve as a reference for your own custom
+# implementation of the tokenizer for your REPL program.
+#
 # Example:
 #   > print(tokenize('3.14 + (2 * -7) >= val'))
 #   ['3.14', '+', '(', '2', '*', '-', '7', ')', '>=', 'val']
@@ -11,15 +15,15 @@
 #   - Allow apostrophes in identifiers, but only at the end
 #       (like f' being the derivative of f).
 
-NUMBER_CHARACTERS     = '0123456789.'
-IDENTIFIER_CHARACTERS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-SYMBOLS               = '''
-    <= >= < > =
-    + - * / ^
-    ( )
-'''.split()
-
 def tokenize(string):
+
+        NUMBER_CHARACTERS     = '0123456789.'
+        IDENTIFIER_CHARACTERS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        SYMBOLS               = '''
+            <= >= < > =
+            + - * / ^
+            ( )
+        '''.split()
 
         tokens = []
 
