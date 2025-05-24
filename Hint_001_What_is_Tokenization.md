@@ -18,18 +18,7 @@ chars = [
 
 We can collect groups of these characters into something called tokens:
 ```python
-tokens = [
-  3.14,
-  '+',
-  '(',
-  2,
-  '*',
-  '-',
-  7,
-  ')',
-  '>=',
-  'val',
-]
+tokens = [3.14, '+', '(', 2, '*', '-', 7, ')', '>=', 'val']
 ```
 
 This process is called **tokenization**.
