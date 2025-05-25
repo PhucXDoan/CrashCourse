@@ -3,8 +3,8 @@
 # Task 0: Git Git.
 
 Git is a program that essentially keeps track of changes to files over time.
-For you though, we can keep the Git usage simple
-where you'll pretty much use it to download this repository (Git jargon for "this project"),
+For you though, we can keep the Git usage simple where you'll pretty much
+use it to download this repository (Git jargon for "this project"),
 keep it up-to-date whenever I make changes,
 and maybe upload code as a way to keep track of your progress so far.
 
@@ -68,16 +68,19 @@ Besides that, that's really all there is to it!
 There's plenty more to Git, of course,
 like for instance:
 
+- how can I completely erase all changes I've made to the repository, back to a clean slate?
+
+- what if I made a typo in the commit message but I've already committed it?
+Maybe even pushed it to GitHub?
+
 - what if I made some commits and tried to push them to
 GitHub, but there were commits already online that I didn't fetch and pull beforehand?
-
-- what if I made a typo in the message?
-
-- how can I completely erase all changes I've made to the repository, back to a clean slate?
 
 - etc.
 
 But I won't show belabor Git anymore, because chances are you won't remember it.
+Things like these are best learned when you actually apply it to a real situation.
+But if you still want to learn more, try figuring out the answers to the bullets above.[^4]
 
 [^1]: The word "master" in *"Commit 1 file to **master**"* refers to
 the main branch of the repository.
@@ -98,6 +101,12 @@ all to GitHub.
 [^3]: The word "origin" refers to the main place where the repository is being hosted.
 In this case, it's GitHub, but it needs not be.
 It could be on your top-secret company's servers for instance.
+
+[^4]: You can directly add and modify files of the repository on GitHub
+and thus make commits that your local copy of the repository wouldn't have.
+Maybe go ahead and reword some sentences you found confusing or fix some typos.
+This is a good way to play around with the routine of fetching and pulling changes
+through the GUI client.
 
 # Task 1: Using brain more.
 
@@ -151,7 +160,7 @@ c = -2
 1.434258545910665
 ```
 
-Python has a REPL program too; you simply run the `python`[^4] command in
+Python has a REPL program too; you simply run the `python`[^5] command in
 the shell/terminal/console and then you can type some Python code line-by-line and have it
 be evaluated each time you press enter.
 I highly suggest you play with that a bit
@@ -159,12 +168,78 @@ to further familiarize yourself with the idea of REPL.
 
 <p align="center"><img src="./data/PythonREPL.png" width="600"></p>
 
-[^4]: ... or maybe `python3`; this is because of a weird backward-compatibility thing.
+[^5]: ... or maybe `python3`; this is because of a weird backward-compatibility thing.
 
 Your goal then would be to make a REPL program as described above using Python.
 It should be able to prompt the user for input,
 be able to print out the correct calculation,
 maybe give an error message if the input is malformed, etc.
-The exact requirements are all up to you,
-but if you need help getting started, check out
-the hints described in the other files.
+
+The exact requirements and tiny details are left all up to you;
+if you do well, you can do more advance things like implementing factorial:
+```
+> (2 + 2)!
+24
+```
+
+... be able to use the previous calculation's results:
+```
+> (2 + 2)!
+24
+
+> ANS
+24
+
+> ANS / 2
+12
+
+> ANS / 2
+6
+
+> ANS
+6
+```
+
+... have user-defined functions:
+```
+> squared(x) = x * x
+
+> squared(9)
+81
+
+> average(a, b) = (a + b) / 2
+
+> average(3, 5)
+4
+
+> squared(average(3, 5))
+16
+```
+
+... and have physical units:
+```
+> 10 [m/s^2] * 1.5[s]
+15[m/s]
+
+> 60[m] / 15[m/s]
+4[s]
+
+> 60[m] + 15[m/s]
+ERROR: Adding [m] and [m/s]!
+```
+
+You do not have to implement all of these things;
+the purpose of this task is to learn how can we
+break complicated problems,
+like implementing this REPL program,
+into something more managable.
+
+As first step, I'd suggest you explore the problem space a bit.
+Imagine if *you* were the computer;
+how would you parse the user's input to produce the expected output?
+Work on intution first, then maybe formalize it into code later.
+
+But you'll still likely need a start somewhere,
+so see the hints when you're ready.
+
+> **Expected time to complete: 1 week.**

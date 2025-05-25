@@ -4,7 +4,7 @@
 #
 # Example:
 #   > print(tokenize('3.14 + (2 * -7) >= val'))
-#   ['3.14', '+', '(', '2', '*', '-', '7', ')', '>=', 'val']
+#   [3.14, '+', '(', 2, '*', '-', 7, ')', '>=', 'val']
 #
 # Potential improvements:
 #   - Better error messages (e.g. print out the string
