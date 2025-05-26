@@ -20,24 +20,22 @@
 
 def print_tree(tree, depth=0):
 
-    def print_indented(string):
-        nonlocal depth
-        print(' |  ' * depth + string)
+    indent = ' |  ' * depth
 
     match tree:
 
         # Binary operator.
         case (lhs, op, rhs):
-            print_indented(f"'{op}'")
+            print(f"{indent}'{op}'")
             print_tree(lhs, depth=depth+1)
-            print_indented(' |')
+            print(f'{indent} |')
             print_tree(rhs, depth=depth+1)
 
         # Unary operator.
         case (op, expr):
-            print_indented(f"'{op}'")
+            print(f"{indent}'{op}'")
             print_tree(expr, depth=depth+1)
 
         # Leaf of the AST.
         case value:
-            print_indented(str(value))
+            print(f'{indent}{value}')
