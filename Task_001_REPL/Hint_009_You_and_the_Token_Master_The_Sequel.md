@@ -170,7 +170,7 @@ Note: this scene is quite dense, so take your time digesting it.
 >   and then put the `'-'` at the top:
 >   ```
 >              (A)
->              '-':3
+>              '-':3 <- The new '-' token that we got.
 >              / \
 >             /   \
 >           '-':3 ???
