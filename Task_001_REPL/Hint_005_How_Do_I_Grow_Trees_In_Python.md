@@ -61,7 +61,7 @@ tree = ((0, '*', 1), '+', (2, '+', ('-', 3)))
                  3
 ```
 
-> **Excercise**: Given a tree like `((0, '*', 1), '+', (2, '+', ('-', 3)))`,
+> **Exercise**: Given a tree like `((0, '*', 1), '+', (2, '+', ('-', 3)))`,
 > make a function that can print it out into something more readable.
 > It doesn't need to be like the ASCII art above, but an output like:
 > ```

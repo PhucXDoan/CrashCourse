@@ -154,7 +154,7 @@ would correspond to `[3, '-', 4, '+', 1, '+', '(', 0.1, '*' 7, ')']`,
 which might've been tokenized from the string `'3 - 4 + 1 + (0.1 * 7)'`.
 The tree that is made corresponds well to what we'd want.
 
-> **Excercise**: This approach of building an AST from a list of tokens
+> **Exercise**: This approach of building an AST from a list of tokens
 > seems straight-forward,
 > but there's a critical flaw with it.
 > Can you figure out what the issue is?

@@ -98,7 +98,7 @@ Note that we have only considered binary operators;
 there'd be a prescedence table for unary operators (and any other n-ary operators)
 too, but small steps at a time!
 
-> **Excercise**: with this knowledge of precedence,
+> **Exercise**: with this knowledge of precedence,
 > can you think of a way to tweak the pseudo-algorithm
 > to incorporate the order of operations?
 

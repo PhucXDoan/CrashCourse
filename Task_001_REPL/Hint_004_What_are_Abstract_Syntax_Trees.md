@@ -125,7 +125,7 @@ Consider the ASTs for the two following expressions:
               1    2
 ```
 
-> **Excercise**: create some mathematical expressions (e.g. `'1 + 2 * (3 + 4 * (5 + ...))'`)
+> **Exercise**: create some mathematical expressions (e.g. `'1 + 2 * (3 + 4 * (5 + ...))'`)
 > and draw out the trees for it.
 > Get some intution for how the code that'd make the AST might look.
 
