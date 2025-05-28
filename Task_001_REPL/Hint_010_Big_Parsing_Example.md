@@ -1,6 +1,6 @@
 # Big Parsing Example
 
-> `'1 + 2 * 3^2 / 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+> `1 + 2 * 3^2 / 4 - 10^2 >= 1 * 2 * 3 * 4`
 
 The first token is a `1`, so:
 ```
@@ -8,7 +8,7 @@ The first token is a `1`, so:
             1
 ```
 
-> `'+ 2 * 3^2 / 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+> `+ 2 * 3^2 / 4 - 10^2 >= 1 * 2 * 3 * 4`
 
 The next token is a `'+'` with a precedence of 3;
 there's no other tree we have to think about merging
@@ -22,7 +22,7 @@ our current tree:
          1    ???
 ```
 
-> `'2 * 3^2 / 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+> `2 * 3^2 / 4 - 10^2 >= 1 * 2 * 3 * 4`
 
 The next token is a `2`;
 we make a new AST with that as the root:
@@ -34,7 +34,7 @@ we make a new AST with that as the root:
          1    ???  |
 ```
 
-> `'* 3^2 / 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+> `* 3^2 / 4 - 10^2 >= 1 * 2 * 3 * 4`
 
 The next token is a `'*'` with a precedence of 2;
 the previous tree has an `'+'` operator at the root
@@ -49,7 +49,7 @@ Let's put the `'*'` operator into tree (B):
          1    ???  |  2    ???
 ```
 
-> `'3^2 / 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+> `3^2 / 4 - 10^2 >= 1 * 2 * 3 * 4`
 
 The next token is a `3`;
 once more, we make a new tree:
@@ -61,7 +61,7 @@ once more, we make a new tree:
          1    ???  |  2    ???  |
 ```
 
-> `'^2 / 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+> `^2 / 4 - 10^2 >= 1 * 2 * 3 * 4`
 
 The next token is a `'^'` with precedence of 1;
 this also has a tighter precedence than `'*'`,
@@ -74,7 +74,7 @@ so we won't merge yet.
          1    ???  |  2    ???  |  3    ???
 ```
 
-> `'2 / 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+> `2 / 4 - 10^2 >= 1 * 2 * 3 * 4`
 
 The next token is a `2`;
 another tree, another day:
@@ -86,7 +86,7 @@ another tree, another day:
          1    ???  |  2    ???  |  3    ??? |
 ```
 
-> `'/ 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+> `/ 4 - 10^2 >= 1 * 2 * 3 * 4`
 
 The next token is a `/` with precedence of 2;
 this time the operator we're looking at has a weaker
@@ -139,7 +139,7 @@ recent tree we have so far:
 ```
 We can now finally move on!
 
-> `'4 - 10^2 >= 1 * 2 * 3 * 4'`.
+> `4 - 10^2 >= 1 * 2 * 3 * 4`
 
 The next token is a `4`;
 new tree:
@@ -157,7 +157,7 @@ new tree:
                    |     3     2   |
 ```
 
-> `'- 10^2 >= 1 * 2 * 3 * 4'`.
+> `- 10^2 >= 1 * 2 * 3 * 4`
 
 The next token is a `'-'` with precedence of 3;
 this operator has a weaker precedence than
@@ -218,7 +218,7 @@ We now attach the `'-'` token:
 ```
 Looking good so far!
 
-> `'10^2 >= 1 * 2 * 3 * 4'`.
+> `10^2 >= 1 * 2 * 3 * 4`
 
 The next token is a `10`;
 more trees:
@@ -242,7 +242,7 @@ more trees:
         3     2   |
 ```
 
-> `'^2 >= 1 * 2 * 3 * 4'`.
+> `^2 >= 1 * 2 * 3 * 4`
 
 The next token is a `'^'` with precedence of 1;
 this is tighter than the previous tree's `'-'`,
@@ -267,7 +267,7 @@ so no merging:
         3     2   |
 ```
 
-> `'2 >= 1 * 2 * 3 * 4'`.
+> `2 >= 1 * 2 * 3 * 4`
 
 The next token is a `2`.
 Guess what? More trees!
@@ -291,7 +291,7 @@ Guess what? More trees!
         3     2   |            |
 ```
 
-> `'>= 1 * 2 * 3 * 4'`.
+> `>= 1 * 2 * 3 * 4`
 
 The next token is a `'>='` which has precedence of 4.
 This is weaker than `'^'`, so we merge:
@@ -361,7 +361,7 @@ We can now put the `'>='` at the root:
 Hopefully this process is starting to look less scary
 to you.
 
-> `'1 * 2 * 3 * 4'`.
+> `1 * 2 * 3 * 4`
 
 The next token is a `1`.
 They call something along the lines of a "tree-lover":
@@ -388,7 +388,7 @@ They call something along the lines of a "tree-lover":
     3     2               |
 ```
 
-> `'* 2 * 3 * 4'`.
+> `* 2 * 3 * 4`
 
 The next token is a `'*'`.
 This has tighter precedence than the previous tree's
@@ -416,7 +416,7 @@ This has tighter precedence than the previous tree's
     3     2               |
 ```
 
-> `'2 * 3 * 4'`.
+> `2 * 3 * 4`
 
 The next token is a `2`.
 Do you like trees?
@@ -443,7 +443,7 @@ Do you like trees?
     3     2               |            |
 ```
 
-> `'* 3 * 4'`.
+> `* 3 * 4`
 
 The next token is another `'*'`.
 Hopefully you get the gist of the process now
@@ -473,7 +473,7 @@ trees (B) and (C) and then put the new
     3     2               |
 ```
 
-> `'3 * 4'`.
+> `3 * 4`
 
 The next token is a `3`.
 More, more, more ASTs:
@@ -500,7 +500,7 @@ More, more, more ASTs:
     3     2               |
 ```
 
-> `'* 4'`.
+> `* 4`
 
 The next token is a `'*'`;
 you should be comfortable with the next step here:
@@ -527,7 +527,7 @@ you should be comfortable with the next step here:
     3     2               |
 ```
 
-> `'4'`.
+> `4`
 
 The final token is a `4`;
 out of completeness, let's make one last AST:
@@ -554,7 +554,7 @@ out of completeness, let's make one last AST:
     3     2               |                  |
 ```
 
-> `''`.
+> ``
 
 There are no tokens left,
 so at this point, we begin merging everything!
