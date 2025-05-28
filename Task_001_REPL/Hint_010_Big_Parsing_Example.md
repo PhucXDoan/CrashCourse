@@ -598,7 +598,7 @@ out of completeness, let's make one last AST:
 
 ---
 
-> ``
+> ` `
 
 There are no tokens left,
 so at this point, we begin merging everything!
