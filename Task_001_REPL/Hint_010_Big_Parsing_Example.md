@@ -1,6 +1,7 @@
 # Big Parsing Example
 
 > `'1 + 2 * 3^2 / 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+
 The first token is a `1`, so:
 ```
            (A)
@@ -8,6 +9,7 @@ The first token is a `1`, so:
 ```
 
 > `'+ 2 * 3^2 / 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+
 The next token is a `'+'` with a precedence of 3;
 there's no other tree we have to think about merging
 or whatever, so we can just append this operator to
@@ -21,6 +23,7 @@ our current tree:
 ```
 
 > `'2 * 3^2 / 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+
 The next token is a `2`;
 we make a new AST with that as the root:
 ```
@@ -32,6 +35,7 @@ we make a new AST with that as the root:
 ```
 
 > `'* 3^2 / 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+
 The next token is a `'*'` with a precedence of 2;
 the previous tree has an `'+'` operator at the root
 with precedence of 3. Since the `'*'` has tighter
@@ -46,6 +50,7 @@ Let's put the `'*'` operator into tree (B):
 ```
 
 > `'3^2 / 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+
 The next token is a `3`;
 once more, we make a new tree:
 ```
@@ -57,6 +62,7 @@ once more, we make a new tree:
 ```
 
 > `'^2 / 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+
 The next token is a `'^'` with precedence of 1;
 this also has a tighter precedence than `'*'`,
 so we won't merge yet.
@@ -69,6 +75,7 @@ so we won't merge yet.
 ```
 
 > `'2 / 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+
 The next token is a `2`;
 another tree, another day:
 ```
@@ -80,6 +87,7 @@ another tree, another day:
 ```
 
 > `'/ 4 - 10^2 >= 1 * 2 * 3 * 4'`.
+
 The next token is a `/` with precedence of 2;
 this time the operator we're looking at has a weaker
 precedence than the previous tree (with the `'^'`).
@@ -132,6 +140,7 @@ recent tree we have so far:
 We can now finally move on!
 
 > `'4 - 10^2 >= 1 * 2 * 3 * 4'`.
+
 The next token is a `4`;
 new tree:
 ```
@@ -149,6 +158,7 @@ new tree:
 ```
 
 > `'- 10^2 >= 1 * 2 * 3 * 4'`.
+
 The next token is a `'-'` with precedence of 3;
 this operator has a weaker precedence than
 the previous tree's operator of `'/'`, so we merge
@@ -209,6 +219,7 @@ We now attach the `'-'` token:
 Looking good so far!
 
 > `'10^2 >= 1 * 2 * 3 * 4'`.
+
 The next token is a `10`;
 more trees:
 ```
@@ -232,6 +243,7 @@ more trees:
 ```
 
 > `'^2 >= 1 * 2 * 3 * 4'`.
+
 The next token is a `'^'` with precedence of 1;
 this is tighter than the previous tree's `'-'`,
 so no merging:
@@ -256,6 +268,7 @@ so no merging:
 ```
 
 > `'2 >= 1 * 2 * 3 * 4'`.
+
 The next token is a `2`.
 Guess what? More trees!
 ```
@@ -279,6 +292,7 @@ Guess what? More trees!
 ```
 
 > `'>= 1 * 2 * 3 * 4'`.
+
 The next token is a `'>='` which has precedence of 4.
 This is weaker than `'^'`, so we merge:
 ```
@@ -348,6 +362,7 @@ Hopefully this process is starting to look less scary
 to you.
 
 > `'1 * 2 * 3 * 4'`.
+
 The next token is a `1`.
 They call something along the lines of a "tree-lover":
 ```
@@ -374,6 +389,7 @@ They call something along the lines of a "tree-lover":
 ```
 
 > `'* 2 * 3 * 4'`.
+
 The next token is a `'*'`.
 This has tighter precedence than the previous tree's
 `'>='`, so no merging yet:
@@ -401,6 +417,7 @@ This has tighter precedence than the previous tree's
 ```
 
 > `'2 * 3 * 4'`.
+
 The next token is a `2`.
 Do you like trees?
 ```
@@ -427,6 +444,7 @@ Do you like trees?
 ```
 
 > `'* 3 * 4'`.
+
 The next token is another `'*'`.
 Hopefully you get the gist of the process now
 and understand why we'd first merge
@@ -456,6 +474,7 @@ trees (B) and (C) and then put the new
 ```
 
 > `'3 * 4'`.
+
 The next token is a `3`.
 More, more, more ASTs:
 ```
@@ -482,6 +501,7 @@ More, more, more ASTs:
 ```
 
 > `'* 4'`.
+
 The next token is a `'*'`;
 you should be comfortable with the next step here:
 ```
@@ -508,6 +528,7 @@ you should be comfortable with the next step here:
 ```
 
 > `'4'`.
+
 The final token is a `4`;
 out of completeness, let's make one last AST:
 ```
@@ -534,6 +555,7 @@ out of completeness, let's make one last AST:
 ```
 
 > `''`.
+
 There are no tokens left,
 so at this point, we begin merging everything!
 Here's (B) and (C):
